@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { Provider } from "react-redux";
 import Store from "./Store";
-import AppRoutes from "./routes"; // HashRouter routes file
+import AppRoutes from "./routes"; // <-- handles Splash, Intro, Mine, NotFound
 import { init } from "@telegram-apps/sdk";
 
 /**
@@ -20,16 +20,15 @@ try {
 }
 
 const rootEl = document.getElementById("root");
+
 if (!rootEl) {
   console.error("Root element not found. Make sure index.html contains <div id='root'></div>");
 } else {
   ReactDOM.createRoot(rootEl).render(
     <React.StrictMode>
-      <div className="min-h-screen">
-        <Provider store={Store}>
-          <AppRoutes />
-        </Provider>
-      </div>
+      <Provider store={Store}>
+        <AppRoutes />
+      </Provider>
     </React.StrictMode>
   );
 }

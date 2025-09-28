@@ -3,8 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { Provider } from "react-redux";
 import Store from "./Store";
-import { RouterProvider } from "react-router-dom";
-import Routes from "./routes"; // our new HashRouter setup
+import AppRoutes from "./routes"; // ✅ using the HashRouter routes
 import { init } from "@telegram-apps/sdk";
 
 /**
@@ -28,7 +27,7 @@ if (!rootEl) {
     <React.StrictMode>
       <div className="min-h-screen">
         <Provider store={Store}>
-          <RouterProvider router={Routes} />
+          <AppRoutes />
         </Provider>
       </div>
     </React.StrictMode>

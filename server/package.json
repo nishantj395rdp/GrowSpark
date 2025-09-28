@@ -2,7 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "main": "dist/start.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "dev": "tsnd --respawn ./src/start.ts",
     "build": "tsc -p tsconfig.build.json",

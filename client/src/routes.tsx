@@ -1,23 +1,29 @@
-import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// pages
 import Splash from "./page/Splash";
 import Introduction from "./page/Introduction";
+import Mine from "./page/Mine";
 import NotFound from "./page/NotFound";
 
-/**
- * HashRouter avoids server 404s on Vercel for initial testing.
- * Route `/app` simply redirects to `/intro` because there's no App.tsx file.
- */
-const AppRoutes = () => {
+const AppRoutes: React.FC = () => {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Routes>
+        {/* Default entry page */}
         <Route path="/" element={<Splash />} />
+
+        {/* Onboarding page */}
         <Route path="/intro" element={<Introduction />} />
-        {/* If you add App.tsx later, change the next line to: <Route path="/app" element={<App/>} /> */}
-        <Route path="/app" element={<Navigate to="/intro" replace />} />
+
+        {/* Main Mining page */}
+        <Route path="/mine" element={<Mine />} />
+
+        {/* Catch-all for invalid routes */}
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 };
 

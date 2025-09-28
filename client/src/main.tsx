@@ -4,7 +4,7 @@ import "./index.css";
 import { Provider } from "react-redux";
 import Store from "./Store";
 import { RouterProvider } from "react-router-dom";
-import Routes from "./routes";
+import Routes from "./routes"; // our new HashRouter setup
 import { init } from "@telegram-apps/sdk";
 
 /**

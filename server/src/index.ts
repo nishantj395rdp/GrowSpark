@@ -7,32 +7,23 @@ import MainRoute from "./routes/main.route";
 export const app = express();
 export const prisma = new PrismaClient();
 
-/**
- * CORS setup:
- * - Allows your Vercel frontend domain in production
- * - Defaults to "*" if CLIENT_ORIGIN not set (useful for dev)
- */
+// CORS
 app.use(cors({
   origin: process.env.CLIENT_ORIGIN ?? "*",
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
 }));
 
-// Parse JSON request bodies
 app.use(express.json());
 
-// Health check route
+// Health check
 app.get("/", Utility.CatchAsync(async (req, res) => {
-  res.send({
-    code: 200,
-    msg: "Server is running",
-    data: []
-  });
+  res.send({ code: 200, msg: "Server is running", data: [] });
 }));
 
-// Main routes
+// Routes
 app.use(MainRoute);
 
-// Global error handler + 404 handler
+// Error handling
 app.use(Utility.Error_Handler);
 app.use(Utility.NotFound);

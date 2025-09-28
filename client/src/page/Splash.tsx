@@ -9,7 +9,7 @@ import who_care_emoji from "../assets/who_care_emoji.webp";
 import silent_emoji from "../assets/silent_emoji.webp";
 
 const Splash: React.FC = () => {
-  const [trigger, { data, isLoading, isError }] = user.LoginUser();
+  const [trigger, { isLoading, isError }] = user.LoginUser(); // removed unused data
   const navigate = useNavigate();
   const initData = useRawInitData();
   const [localError, setLocalError] = useState<string | null>(null);
@@ -21,9 +21,7 @@ const Splash: React.FC = () => {
       .then(() => {
         try {
           if (miniApp.mountSync?.isAvailable && miniApp.mountSync.isAvailable()) {
-            if (!miniApp.isMounted()) {
-              miniApp.mountSync.mount();
-            }
+            console.info("MiniApp mountSync available.");
           }
         } catch (e) {
           console.warn("miniApp mount warning:", e);

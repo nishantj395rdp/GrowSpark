@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { Provider } from "react-redux";
 import Store from "./Store";
-import AppRoutes from "./routes"; // ✅ using the HashRouter routes
+import AppRoutes from "./routes"; // HashRouter routes file we'll create
 import { init } from "@telegram-apps/sdk";
 
 /**

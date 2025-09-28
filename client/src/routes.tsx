@@ -1,10 +1,11 @@
+import React from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import Splash from "./page/Splash";
 import Intro from "./page/Intro";
 import App from "./page/App";
-import NotFound from "./page/NotFound"; // ✅ make sure file exists
+import NotFound from "./page/NotFound";
 
-const AppRoutes = () => {
+const AppRoutes: React.FC = () => {
   return (
     <HashRouter>
       <Routes>

@@ -1,24 +1,20 @@
-import React from "react";
-import { createHashRouter } from "react-router-dom";
-import AppLayout from "./layout/AppLayout";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Splash from "./page/Splash";
-import Introduction from "./page/Introduction";
-import NotFound from "./page/NotFound";
+import Intro from "./page/Intro";
+import App from "./page/App";
+import NotFound from "./page/NotFound"; // ✅ make sure file exists
 
-const router = createHashRouter([
-  {
-    path: "/",
-    element: <Splash />,
-    errorElement: <NotFound />,
-  },
-  {
-    path: "/intro",
-    element: <Introduction />,
-  },
-  {
-    path: "/app",
-    element: <AppLayout />,
-  },
-]);
+const AppRoutes = () => {
+  return (
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<Splash />} />
+        <Route path="/intro" element={<Intro />} />
+        <Route path="/app" element={<App />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </HashRouter>
+  );
+};
 
-export default router;
+export default AppRoutes;
